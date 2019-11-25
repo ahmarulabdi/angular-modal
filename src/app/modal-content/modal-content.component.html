@@ -1,2 +1,13 @@
-<p>modal-content works!</p>
-<button class="btn btn-info">tes</button>
+<div class="modal-header">
+  <h4 class="modal-title">Simple Modal</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <input type="text" [(ngModel)]="user.name" >
+  <input type="number" [(ngModel)]="user.age">
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" type="submit" (click)="passBack()" >Pass Back</button>
+</div>
