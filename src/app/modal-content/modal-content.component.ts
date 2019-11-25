@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-modal-content',
@@ -7,12 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModalContentComponent implements OnInit {
   @Input() public user;
+  @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
-  ngOnInit(
-
-  ) {
+  ngOnInit() {
     console.log(this.user);
+  }
+
+  passBack() {
+    this.passEntry.emit(this.user);
   }
 
 }
