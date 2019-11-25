@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal-content',
@@ -8,15 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ModalContentComponent implements OnInit {
   @Input() public user;
-  @Output() passEntry: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor(
+    public activeModal: NgbActiveModal
+  ) { }
 
   ngOnInit() {
     console.log(this.user);
   }
 
   passBack() {
-    this.passEntry.emit(this.user);
+    this.activeModal.close(this.user);
   }
 
 }

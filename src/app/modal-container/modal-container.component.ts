@@ -23,7 +23,7 @@ export class ModalContainerComponent implements OnInit {
   openModal(){
     const modalRef = this.modalService.open(ModalContentComponent);
     modalRef.componentInstance.user = this.user;
-    modalRef.componentInstance.passEntry.subscribe((receiveEntry) => console.log(receiveEntry));
+    modalRef.result.then((result) => {if (result) { console.log(result); } });
   }
 
 }
